@@ -127,6 +127,15 @@ const database = {
     }]
 }
 
+for (const employee of database.employees) {
+    let numOfOrders = 0
+    for (const order of database.orders) {
+        if (order.employeeId === employee.id)
+        numOfOrders ++
+    }
+    employee.numOfOrders = numOfOrders
+}
+
 export const getProducts = () => {
     return database.products.map(product => ({...product}))
 }
